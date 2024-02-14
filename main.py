@@ -41,8 +41,6 @@ def getNasdaq100List():
         return None
 
 
-# This function gets the list of current tickers in the S&P 500
-# return: a list of strings representing the tickers
 def getSP500List():
     """This function gets the list of current tickers in the S&P 500
     Returns:
@@ -94,8 +92,6 @@ def getYFData(ticker, period1, period2, interval, directory):
                 Dataframe - representing price data for the ticker
         """
 
-
-
     query_string = f'https://query1.finance.yahoo.com/v7/finance/download/{ticker}?period1={period1}&period2={period2}&interval={interval}&events=history&includeAdjustedClose=true'
 
     headers = {
@@ -103,8 +99,6 @@ def getYFData(ticker, period1, period2, interval, directory):
     }
 
     response = requests.get(query_string, headers=headers)
-
-
 
     if response.status_code == 200:
         with open(os.path.join(directory, f'{ticker}.csv'), 'w') as f:
